@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import API from '../utils/api';
+import API from '../utils/API';
 import { useExpense } from '../context/ExpenseContext';
 
 const Register = () => {
