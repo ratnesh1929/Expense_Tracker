@@ -5,9 +5,18 @@ const dotenv = require('dotenv');
 const authRoutes = require('./src/routes/authRoutes');
 dotenv.config();
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://expense-tracker-n113.vercel.app', // ← your deployed frontend
+];
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
